@@ -29,7 +29,7 @@ def display_page(pathname):
     elif pathname == '/page-3':
         return layout_page_3
     else:
-        return "Welcome! Please choose a page."
+        return "Switch tabs to view data"
 
 if __name__ == '__main__':
     app.run_server(debug=True)

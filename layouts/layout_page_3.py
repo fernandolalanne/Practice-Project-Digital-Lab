@@ -3,6 +3,8 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 from load_data import df_concatenado, df_covid_combined
 from layouts.layout_page_1 import variables_covid, variables_economy
+import plotly.graph_objects as go
+
 
 
 
@@ -19,6 +21,8 @@ def generate_economic_bubble_chart(df):
     fig = px.scatter(df, x="Year", y="GDP_per_capita", size="population", color="Entity",
                      title="Economic Bubble Chart Over Time", size_max=60)
     return fig
+
+
 
 leyenda_card = dbc.Card(
     dbc.CardBody([
@@ -78,11 +82,11 @@ layout_page_3 = dbc.Container([
         ), width=9),
     ]),
     dbc.Row(dbc.Col(dcc.Graph(id='selected-country-graph'))),
-    dbc.Row(dbc.Col(html.Div("Economic Bubble Chart over Time:"))),
+    dbc.Row(dbc.Col(html.Div("Economic performance as a function of the Giny coefficient and education expenditures:"))),
     dbc.Row(dbc.Col(dcc.Graph(id='economic-bubble-chart'))),
     dbc.Row([
         dbc.Col([
-            html.Label('Select 3 variables to display the correlation graph:'),
+            html.Label('Select at least 3 covid variables to display the correlation graph:'),
             dcc.Dropdown(id='covid-vars-dropdown',
                          options=[{'label': var, 'value': var} for var in variables_covid],
                          multi=True,
@@ -90,7 +94,7 @@ layout_page_3 = dbc.Container([
                         )
         ], width=6),
         dbc.Col([
-            html.Label('Select 3 variables to display the graph:'),
+            html.Label('Select at least 3 economics variables to display the correlation graph:'),
             dcc.Dropdown(id='economic-vars-dropdown',
                          options=[{'label': var, 'value': var} for var in variables_economy],
                          multi=True,
@@ -106,5 +110,38 @@ layout_page_3 = dbc.Container([
     dbc.Row([
         dbc.Col(dcc.Graph(id='covid-evolution-graph'), width=6),
         dbc.Col(dcc.Graph(id='economic-evolution-graph'), width=6),
+        dbc.Col(dcc.Graph(id='inflation-evolution-graph'), width=6),
+        dbc.Col(dcc.Graph(id='Trade-evolution-graph'), width=6),
     ]),
+    dbc.Row([
+        dbc.Col(html.Label("Select a COVID-19 variable for the scatter plot:"), width=3),
+        dbc.Col(dcc.Dropdown(
+            id='scatter-covid-var-dropdown',
+            options=[{'label': var, 'value': var} for var in variables_covid],
+            value=variables_covid[0]  # Valor predeterminado
+        ), width=9),
+    ]),
+    dbc.Row([
+        dbc.Col(html.Label("Select an Economic variable for the scatter plot:"), width=3),
+        dbc.Col(dcc.Dropdown(
+            id='scatter-economic-var-dropdown',
+            options=[{'label': var, 'value': var} for var in variables_economy],
+            value=variables_economy[0]  # Valor predeterminado
+        ), width=9),
+    ]),
+    dbc.Row([
+    dbc.Col(dcc.Graph(id='time-scatter-plot'), width=12),
+    ]),
+    dbc.Row([
+        dbc.Col(dcc.Slider(
+            id='time-slider',
+            min=df_covid_selected['Year'].min(),  # Asume que 'Year' es tu columna de tiempo unificada
+            max=df_covid_selected['Year'].max(),
+            value=df_covid_selected['Year'].min(),
+            marks={str(year): str(year) for year in df_covid_selected['Year'].unique()},
+            step=None
+        ), width=12),
+    ]),
+
+
 ], fluid=True)
