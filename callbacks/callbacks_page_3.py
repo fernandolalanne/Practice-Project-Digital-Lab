@@ -11,7 +11,7 @@ def generate_3d_correlation_graph(df, vars):
     df = df[vars].dropna()
     
     if len(vars) < 3:
-        print("Selecciona al menos 3 variables para visualizar la correlación en 3D.")
+        print("You need at least 3 variables.")
         return go.Figure()
     
     # Calcular la matriz de correlación
@@ -42,7 +42,7 @@ def generate_3d_correlation_graph(df, vars):
     )])
     
     # Configuración del layout del gráfico
-    fig.update_layout(margin=dict(l=0, r=0, b=0, t=30), title="Correlación 3D entre Variables", scene=dict(
+    fig.update_layout(margin=dict(l=0, r=0, b=0, t=30), scene=dict(
                       xaxis_title='Variable X',
                       yaxis_title='Variable Y',
                       zaxis_title='Correlación'))
@@ -63,13 +63,13 @@ def generate_3d_correlation_graph(df, vars):
 
 def update_selected_country_graph(selected_country, selected_covid_vars, selected_economic_vars):
     filtered_df = df_economic_selected[df_economic_selected['Entity'] == selected_country]
-    fig = px.bar(filtered_df, x='Year', y=['GDP', 'Education','GINI'], title=f'Data for {selected_country}')
+    fig = px.bar(filtered_df, x='Year', y=['GDP', 'Money spent in the education area','Gini Coefficient'], title=f'Data for {selected_country}')
 
     fig2 = px.scatter(filtered_df, 
                      x='Year', 
                      y='GDP', 
-                     size='GINI',  # Asume que GINI es una columna en tu df
-                     color='Education',  # Usando Educación como color
+                     size='Gini Coefficient',  # Asume que GINI es una columna en tu df
+                     color='Money spent in the education area',  # Usando Educación como color
                      hover_name='Entity', 
                      title=f'Economic Bubble Chart for {selected_country} over Time',
                      size_max=60)  # Máximo tamaño de burbuja
@@ -83,7 +83,7 @@ def update_selected_country_graph(selected_country, selected_covid_vars, selecte
     fig5 = generate_3d_correlation_graph(filtered_covid_df, selected_covid_vars)
     fig6 = generate_3d_correlation_graph(filtered_economic_df, selected_economic_vars)
     
-    fig3 = px.line(df_covid_selected, x='Date', y='total_cases', color='location', title='COVID-19 Total Cases Evolution for Selected Countries')
+    fig3 = px.line(df_covid_selected, x='Date', y='Total cases per million', color='location', title='COVID-19 Total Cases Evolution for Selected Countries')
     fig4 = px.area(df_economic_selected, x='Year', y='GDP', color='Entity', line_group='Entity', title='GDP Evolution for Selected Countries')
 
     return fig, fig2, fig3, fig4, fig5, fig6

@@ -15,6 +15,6 @@ def update_graph_page2(selected_country, selected_variable):
     
     
     fig = px.bar(filtered_df, x='Month', y=selected_variable, color='Year',
-                    title=f"Evolución de {selected_variable} en {selected_country} por Mes y Año")
+                    title=f"Evolution od {selected_variable} in {selected_country} per Year and Month")
     
     return fig

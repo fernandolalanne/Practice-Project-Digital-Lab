@@ -11,6 +11,12 @@ import plotly.graph_objects as go
 fig_map = px.scatter_geo(df_concatenado, locations="Entity", locationmode='country names',
                          hover_name="Entity", projection="natural earth")
                          
+variables_economy = ['Percentage of GDP of trade', 'Poorest decile threshold',
+            'Gini Coefficient', 'Median income', 'Richest decile threshold','Money spent in the education area']
+variables_covid = ['Total Deaths', 'Total cases per million',
+'New cases per million', 'Stringency index', 
+'Weekly hospitalizations per million','Inflation rate']
+
 layout_page_1 = dbc.Container([
     html.H1("Economic and Social Evolution by Country"),
     dbc.Row(dbc.Col(html.Div("Select a country by clicking on the map below:"))),
@@ -19,8 +25,8 @@ layout_page_1 = dbc.Container([
     dbc.Row(dbc.Col(html.H4("Choose a variable to display:"))),
     dbc.Row(dbc.Col(dcc.Dropdown(
         id='variable-dropdown',
-        options=[{'label': i, 'value': i} for i in df_concatenado.columns[0:]],
-        value=df_concatenado.columns[0]  # default value
+        options=[{'label': i, 'value': i} for i in variables_economy],
+        value=variables_economy[0]  # default value
     ))),
     dbc.Row(dbc.Col(html.Div("Graphical representation:"))),
     dbc.Row([
@@ -29,8 +35,8 @@ layout_page_1 = dbc.Container([
             html.H4("Monthly Data Visualization"),
             dcc.Dropdown(
                 id='monthly-data-dropdown',
-                options=[{'label': i, 'value': i} for i in df_covid_combined.columns[3:]],  # Asume que la columna 3 tiene datos mensuales
-                value=df_covid_combined.columns[3]  # default value
+                options=[{'label': i, 'value': i} for i in variables_covid],  # Asume que la columna 3 tiene datos mensuales
+                value=variables_covid[0]  # default value
             ),
             dcc.Graph(id='monthly-data-graph')  # Gráfico para datos mensuales
         ], width=6)

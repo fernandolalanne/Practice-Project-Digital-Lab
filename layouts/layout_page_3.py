@@ -2,6 +2,7 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
 from load_data import df_concatenado, df_covid_combined
+from layouts.layout_page_1 import variables_covid, variables_economy
 
 
 
@@ -25,12 +26,38 @@ leyenda_card = dbc.Card(
         html.P([
         html.Strong("Chile"), 
         html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
-        "Grupo 1"
+        "Argentina, Brazil, Colombia, Ecuador, Guatemala, Nicaragua, Peru, Uruguay"
     ]),
     html.P([
-        html.Strong("Argentina"), 
+        html.Strong("Mexico"), 
         html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
-        "Grupo 2"
+        "Bolivia, Paraguay, Panama, Honduras"
+    ]),
+    html.P([
+        html.Strong("Canada"), 
+        html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
+        "USA"
+    ]),
+    html.P([
+        html.Strong("France"), 
+        html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
+        "Germany"
+    ]),
+    html.P([
+        html.Strong("Italy"), 
+        html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
+        "-"
+    ]),
+    html.P([
+        html.Strong("Finland"), 
+        html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
+        "Belgium"
+    ]),
+
+    html.P([
+        html.Strong("Romania"), 
+        html.I(className="fas fa-arrow-right", style={"margin": "0 10px"}),
+        "Hungary, Poland"
     ]),
     ]),
     color="info",  # Color de la tarjeta. Puedes elegir: "primary", "secondary", "info", etc.
@@ -55,17 +82,17 @@ layout_page_3 = dbc.Container([
     dbc.Row(dbc.Col(dcc.Graph(id='economic-bubble-chart'))),
     dbc.Row([
         dbc.Col([
-            html.Label('Select 3 variables to display the graph:'),
+            html.Label('Select 3 variables to display the correlation graph:'),
             dcc.Dropdown(id='covid-vars-dropdown',
-                         options=[{'label': var, 'value': var} for var in df_covid_combined.columns],
+                         options=[{'label': var, 'value': var} for var in variables_covid],
                          multi=True,
-                         value=['total_cases']  # Valores predeterminados o vacíos
+                         value=['Total cases per million']  # Valores predeterminados o vacíos
                         )
         ], width=6),
         dbc.Col([
             html.Label('Select 3 variables to display the graph:'),
             dcc.Dropdown(id='economic-vars-dropdown',
-                         options=[{'label': var, 'value': var} for var in df_concatenado.columns],
+                         options=[{'label': var, 'value': var} for var in variables_economy],
                          multi=True,
                          value=['GDP']  # Valores predeterminados o vacíos
                         )

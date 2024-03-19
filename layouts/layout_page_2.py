@@ -19,11 +19,11 @@ layout_page_2 = dbc.Container([
         dbc.Col(dcc.Dropdown(
             id='variable-dropdown-page2',
             options=[
-                {'label': 'Total Cases', 'value': 'total_cases'},
-                {'label': 'Total Deaths', 'value': 'total_deaths'},
+                {'label': 'Total Cases', 'value': 'Total cases per million'},
+                {'label': 'Total Deaths', 'value': 'Total Deaths'},
                 # Puedes agregar más variables aquí según sea necesario
             ],
-            value='total_cases'  # Valor predeterminado
+            value='Total cases per million'  # Valor predeterminado
         ), width=9),
     ]),
     dbc.Row(dbc.Col(dcc.Graph(id='evolution-graph-page2'))),
