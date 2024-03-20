@@ -17,7 +17,7 @@ Le fichier suivant a pour but d'expliquer comment le code a été créé afin qu
 - [Web Dashboard](#web-dashboard) :nerd_face:
 - [Analysis-Interpretation](#analysis-interpretation) :globe_with_meridians:
 - [Conclusion](#conclusion) :globe_with_meridians:
-- [Formats de téléchargement de fichiers](#formats-de-téléchargement-de-fichiers)   :arrow_up_small:
+- [Future direction](#future-direction)   :arrow_up_small:
 
 
 ## Bibliothèques nécessaires :blue_book:
@@ -27,17 +27,9 @@ Afin de faire fonctionner le programme, 3 bibliothèques ont été installées:
 
 
 ## Comment lancer ou gérer le programme :raised_eyebrow:
-Pour pouvoir exécuter le programme, il est nécessaire de taper dans le terminal de l'ordinateur
+Pour pouvoir visualiser le dashboard, il est nécessaire de taper dans le terminal de l'ordinateur
 
-    python3 manage.py runserver
-
-Dans mon cas, j'utilise python 3 et je dois donc taper *python 3*.
-
-Par ailleurs, si vous souhaitez modifier un modèle, c'est-à-dire un tableau de la base de données, vous devez écrire les modifications puis écrire
-
-    python3 manage.py makemigrations
-
-Et ensuite
+    python3 index.py
 
     python3 manage.py migrate
 
