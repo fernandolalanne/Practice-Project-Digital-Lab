@@ -38,6 +38,10 @@ This project aims to analyze the potential impact of the COVID-19 pandemy on the
 
 The primary goal of this project is to gain insights into how economic factors and COVID-19 metrics intersect and influence each other within various regions.
 
+For the above reasons, the project was divided into 3 parts: one part dedicated to the analysis of European countries, another part dedicated to the analysis of American countries, and another part dedicated to the analysis of African and Asian countries, which is why this document contains explanatory sections dedicated to each continent mentioned. 
+
+The idea was to be able to analyze and draw **conclusions about the global situation** once we had representative and aggregated data for each continent studied.
+
 ## Notebooks Overview
 
 The project includes Jupyter notebooks for data preprocessing, analysis, and clustering. These notebooks contain Python code and markdown cells documenting the steps taken in the analysis process. Key tasks performed in the notebooks include:
