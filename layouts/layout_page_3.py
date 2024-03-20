@@ -70,7 +70,25 @@ leyenda_card = dbc.Card(
     style={"maxWidth": "400px", "margin": "50px auto 0 auto"}
 )
 
+instruction_card = dbc.Card(
+    dbc.CardBody([
+        html.H5("Explore the Data", className="card-title"),
+        html.P("Use the drop-down menus below to select different variables and discover insights about COVID-19 and economic variables. Play with the graphs and explore!"),
+    ]),
+    color="success",
+    outline=True,
+    style={"margin-bottom": "20px"}
+)
 
+instruction_card2 = dbc.Card(
+    dbc.CardBody([
+        html.H5("Explore the Data", className="card-title"),
+        html.P("Chooses random variables and explores their correlation!"),
+    ]),
+    color="success",
+    outline=True,
+    style={"margin-bottom": "20px"}
+)
 
 layout_page_3 = dbc.Container([
     html.H1("Representative countries Analysis"),
@@ -85,6 +103,9 @@ layout_page_3 = dbc.Container([
     dbc.Row(dbc.Col(dcc.Graph(id='selected-country-graph'))),
     dbc.Row(dbc.Col(html.Div("Economic performance as a function of the Giny coefficient and education expenditures:"))),
     dbc.Row(dbc.Col(dcc.Graph(id='economic-bubble-chart'))),
+    html.H5("GDP evolution considering equation factors and GINI coefficient (inequality)", style={"textAlign": "center"}),
+    html.P(graph_descriptions['economic-bubble-chart'], style={"textAlign": "center"}),
+    instruction_card2,
     dbc.Row([
         dbc.Col([
             html.Label('Select at least 3 covid variables to display the correlation graph:'),
@@ -108,13 +129,63 @@ layout_page_3 = dbc.Container([
         dbc.Col(dcc.Graph(id='economic-correlation-3d'), width=6),
     ]),
     leyenda_card,
+
+   dbc.Row([
+    dbc.Col(dcc.Graph(id='covid-evolution-graph'), width=6, style={"display": "flex", "alignItems": "center"}),
+    dbc.Col(html.Div([
+        html.H5("COVID-19 Evolution", style={"textAlign": "center"}),
+        html.P(graph_descriptions['covid-evolution-graph'], style={"textAlign": "center"})
+    ], style={
+        "display": "flex", 
+        "flexDirection": "column", 
+        "justifyContent": "center",
+        "height": "100%",
+        "marginLeft": "100px",
+    }), width=6),
+    ], align="center"),
+
     dbc.Row([
-        dbc.Col(dcc.Graph(id='covid-evolution-graph'), width=6),
-        dbc.Col(html.P(graph_descriptions['covid-evolution-graph'])),
-        dbc.Col(dcc.Graph(id='economic-evolution-graph'), width=6),
-        dbc.Col(dcc.Graph(id='inflation-evolution-graph'), width=6),
-        dbc.Col(dcc.Graph(id='Trade-evolution-graph'), width=6),
-    ]),
+    dbc.Col(html.Div([
+        html.H5("Economic Evolution", style={"textAlign": "center"}),
+        html.P(graph_descriptions['economic-evolution-graph'], style={"textAlign": "center"})
+    ], style={
+        "display": "flex", 
+        "flexDirection": "column", 
+        "justifyContent": "center",
+        "height": "100%"
+    }), width=6),
+    dbc.Col(dcc.Graph(id='economic-evolution-graph'), width=6, style={"display": "flex", "alignItems": "center"}),
+    ], align="center"),
+
+    dbc.Row([
+    dbc.Col(dcc.Graph(id='inflation-evolution-graph'), width=6, style={"display": "flex", "alignItems": "center"}),
+    dbc.Col(html.Div([
+        html.H5("Inflation Evolution", style={"textAlign": "center"}),
+        html.P(graph_descriptions['inflation-evolution-graph'], style={"textAlign": "center"})
+    ], style={
+        "display": "flex", 
+        "flexDirection": "column", 
+        "justifyContent": "center",
+        "height": "100%",
+        "marginLeft": "100px",
+    }), width=6),
+], align="center"),
+
+
+    dbc.Row([
+    dbc.Col(html.Div([
+        html.H5("Relationship between hospitalizations and restrictions", style={"textAlign": "center"}),
+        html.P(graph_descriptions['hosp-evolution-graph'], style={"textAlign": "center"})
+    ], style={
+        "display": "flex", 
+        "flexDirection": "column", 
+        "justifyContent": "center",
+        "height": "100%"
+    }), width=6),
+    dbc.Col(dcc.Graph(id='hosp-evolution-graph'), width=6, style={"display": "flex", "alignItems": "center"}),
+    ], align="center"),
+
+    instruction_card,
     dbc.Row([
         dbc.Col(html.Label("Select a COVID-19 variable for the scatter plot:"), width=3),
         dbc.Col(dcc.Dropdown(
@@ -147,6 +218,8 @@ layout_page_3 = dbc.Container([
     dbc.Row([
     dbc.Col(dcc.Graph(id='hospitalizations-heatmap-graph'), width=12),
     ]),
+    html.H5("Evolution of the hospitalization rates", style={"textAlign": "center"}),
+    html.P(graph_descriptions['hospitalizations-heatmap-graph'], style={"textAlign": "center"})
 
 
 ], fluid=True)

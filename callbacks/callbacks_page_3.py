@@ -61,7 +61,7 @@ def generate_hospitalizations_heatmap(df):
      Output('covid-evolution-graph', 'figure'),
      Output('economic-evolution-graph', 'figure'),
      Output('inflation-evolution-graph', 'figure'),
-     Output('Trade-evolution-graph', 'figure'),
+     Output('hosp-evolution-graph', 'figure'),
      Output('covid-correlation-3d', 'figure'),
      Output('economic-correlation-3d', 'figure'),
      Output('time-scatter-plot', 'figure'),
