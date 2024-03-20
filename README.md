@@ -131,33 +131,33 @@ The project includes the development of an interactive web-based dashboard using
 ### Pages and Layouts
 
 The web dashboard consists of multiple pages, each focusing on different aspects of the data analysis. The layout and contents of each page are designed to facilitate data exploration and interpretation.
+
 • **Page 1:** 
-    ◦ 
+
+
+        
+◦ The first page called *Economic Factor* shows an overview of all the countries studied. On this page it is possible to visualize the evolution of mostly economic variables but also certain variables related to COVID-19 in order to be able to compare at the same time the effects of the pandemic on the economic sector of each country.
 
 • **Page 2:**
-    ◦ 
 
-- **Page 3:** 
-    ◦ 
+
+◦ The second page called *Covid Factor* is a page dedicated to show the evolution of total cases and total deaths linked to COVID-19 for each country.
+
+• **Page 3:** 
+
+◦ The third page called Selected Countries is a page dedicated to displaying information on     particular countries representative of certain regions. The latter were defined using Clustering techniques detailed in another section. 
+
+At the beginning, it is possible to select one of the countries to visualize certain variables specific to each country, for example the evolution of GDP, the evolution of the country's inequality, certain evolution of variables linked to COVID-19 and it is even possible to visualize the correlation between different variables through a 3D graph.
+
+
+This section is immediately followed by generalized graphs showing the evolution of variables of all the selected countries as a whole, such as inflation, hospitalization rate, GDP, number of cases, etc.
 
 ### Dash Components and Callbacks
 
-The dashboard incorporates various Dash components and callback functions to create an interactive user experience.
+At the code level, it is structured in different folders, thus separating the codes in charge of creating the visualizations and managing the functions that allow the creation of the graphics. Both codes are located in folders called *layouts* and *callbacks* respectively. 
 
-- **Dash Components:**
 
-  - HTML elements for structuring the layout, such as headers, paragraphs, and divs.
-  
-  - Dash Core Components for interactive elements like dropdowns, sliders, and graphs.
-  
-  - Dash Bootstrap Components for responsive design and styling.
-
-- **Callbacks:**
-
-  - Callback functions enable interactivity by updating the dashboard content in response to user inputs.
-  
-  - Callbacks are used to update plot data, filter data based on user selections, and provide real-time feedback.
-
+There are also the files *index.py*, *app.py*, *load_data.py* and *graph_description.json* that contain basic information to run the application. The JSON file contains the explanatory texts for each graph.
 
 
 ### Running the Dashboard
