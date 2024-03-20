@@ -131,4 +131,5 @@ def update_selected_country_graph(selected_country, selected_covid_vars, selecte
 
 
 
+
     return fig, fig2, fig3, fig4, fig9, fig10, fig5, fig6, fig_time, fig_heatmap

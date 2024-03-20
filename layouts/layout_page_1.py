@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 fig_map = px.scatter_geo(df_concatenado, locations="Entity", locationmode='country names',
                          hover_name="Entity", projection="natural earth")
                          
-variables_economy = ['Percentage of GDP of trade', 'Poorest decile threshold',
+variables_economy = ['GDP','Percentage of GDP of trade', 'Poorest decile threshold',
             'Gini Coefficient', 'Median income', 'Richest decile threshold','Money spent in the education area']
 variables_covid = ['Total Deaths', 'Total cases per million',
 'New cases per million', 'Stringency index', 

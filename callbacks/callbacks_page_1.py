@@ -2,20 +2,21 @@ from dash.dependencies import Input, Output, State
 from app import app
 import plotly.express as px
 from load_data import df_concatenado, df_covid_combined
+import plotly.graph_objects as go
 
 
 @app.callback(
     [Output('country-selected', 'children'),
      Output('feature-graph', 'figure'),
-     Output('monthly-data-graph', 'figure'),
-     Output('analysis-box', 'children')],
+     Output('monthly-data-graph', 'figure')],
     [Input('world-map', 'clickData'),
      Input('variable-dropdown', 'value'),
      Input('monthly-data-dropdown', 'value')])
 def update_graph(clickData, selected_variable, selected_monthly_variable):
     if clickData is None:
-        analysis_text = 'Choose a country and a variable to see the analysis.'
-        return 'Choose a country', {}, {}, analysis_text
+        empty_figure = go.Figure()
+        empty_figure.update_layout(template="plotly_white", height=400)
+        return 'Choose a country', empty_figure, empty_figure
     else:
         country_name = clickData['points'][0]['location']
         df_filtered = df_concatenado[df_concatenado['Entity'] == country_name]
@@ -32,8 +33,8 @@ def update_graph(clickData, selected_variable, selected_monthly_variable):
         )
 
         fig_monthly = px.line(df_filtered_monthly, x='Date', y=selected_monthly_variable,
-                      title=f'Monthly {selected_monthly_variable} in {country_name}', template="plotly_white",
-                      color_discrete_sequence=['violet'])  # Est
+                              title=f'Monthly {selected_monthly_variable} in {country_name}', template="plotly_white",
+                              color_discrete_sequence=['violet'])
 
         fig_monthly.update_layout(
             title={'text': f'Monthly {selected_monthly_variable} in {country_name}', 'x': 0.5, 'xanchor': 'center'},
@@ -41,5 +42,5 @@ def update_graph(clickData, selected_variable, selected_monthly_variable):
             yaxis_title=selected_monthly_variable,
             height=400,
             font=dict(size=12)
-        )        
-        return fig, fig_monthly
+        )
+        return country_name, fig, fig_monthly
