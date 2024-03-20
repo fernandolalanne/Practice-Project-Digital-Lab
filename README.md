@@ -46,13 +46,9 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 
 • blabla???
 
-### Preprocessing-America
-
-• blabla???
-
 ### Preprocessing-europe
 
-• This notebook provides an extensive data preprocessing and merging to prepare our data for analysis.
+• This notebook provides an extensive data preprocessing and merging to prepare our European data for analysis.
 
 • Importing various data tables related to COVID-19, economic indicators, and inflation.
 
@@ -104,7 +100,29 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 
 ### Analysis
 
-• Where we concatenate and make the tables ready for the dash
+??? Where we make the analysis for america, concatenate and make the tables ready for the dash and do the clusters
+• This notebook provides detailed data preprocessing and merging steps tailored for countries in the Americas region.
+
+• The preprocessing involves concatenating and preparing various data tables related to COVID-19 metrics and economic indicators specific to American countries.
+
+• Importing datasets encompassing COVID-19 statistics, economic indicators such as GDP, education, poverty, and trade data.
+
+• Cleaning the COVID-19 data by handling missing values, selecting pertinent columns, and aggregating data by month and location.
+
+• Standardizing and cleaning economic indicator data, including merging different tables and ensuring consistency across variables.
+
+• Merging the cleaned COVID-19 data with standardized economic indicators based on location and date.
+
+• Utilizing techniques like K-nearest neighbors (KNN) imputation for filling missing values in economic indicator datasets.
+
+• Assigning a continent label (America) to the preprocessed data and preparing it for subsequent analysis and visualization.
+
+• This notebook outputs two files specific to American countries:
+
+    df_covid_economics_america.csv containing features like date, location, total_deaths, GDP, education, poverty, continent, Year, and Month.
+    df_clusters_america.csv containing the clustered groups of American countries based on economic and COVID-19 metrics.
+
+The preprocessing steps ensure that the data is structured and cleaned for further analysis and visualization on the dashboard, facilitating insights into the intersection of economic factors and the COVID-19 pandemic in the Americas region.
 
 ## Web Dashboard
 
