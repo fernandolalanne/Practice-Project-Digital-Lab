@@ -7,11 +7,11 @@ from load_data import df_concatenado, df_covid_combined
 @app.callback(
     [Output('country-selected', 'children'),
      Output('feature-graph', 'figure'),
-     Output('monthly-data-graph', 'figure'),  # Añadido para actualizar el gráfico mensual
+     Output('monthly-data-graph', 'figure'),
      Output('analysis-box', 'children')],
     [Input('world-map', 'clickData'),
      Input('variable-dropdown', 'value'),
-     Input('monthly-data-dropdown', 'value')])  # Añadido para escuchar cambios en el dropdown mensual
+     Input('monthly-data-dropdown', 'value')])
 def update_graph(clickData, selected_variable, selected_monthly_variable):
     if clickData is None:
         analysis_text = 'Choose a country and a variable to see the analysis.'
@@ -27,8 +27,8 @@ def update_graph(clickData, selected_variable, selected_monthly_variable):
             title={'text': f'Annual {selected_variable} for {country_name}', 'x': 0.5, 'xanchor': 'center'},
             xaxis_title="Year",
             yaxis_title=selected_variable,
-            height=400,  # Ajusta el tamaño del gráfico
-            font=dict(size=12)  # Ajusta el tamaño del texto global, incluyendo los títulos de los ejes
+            height=400,
+            font=dict(size=12)
         )
 
         fig_monthly = px.line(df_filtered_monthly, x='Date', y=selected_monthly_variable,
@@ -39,12 +39,7 @@ def update_graph(clickData, selected_variable, selected_monthly_variable):
             title={'text': f'Monthly {selected_monthly_variable} in {country_name}', 'x': 0.5, 'xanchor': 'center'},
             xaxis_title="Date",
             yaxis_title=selected_monthly_variable,
-            height=400,  # Ajusta el tamaño del gráfico para que coincida con el otro gráfico
-            font=dict(size=12)  # Ajusta el tamaño del texto global, incluyendo los títulos de los ejes
-        )
-        # fig_monthly.update_xaxes(dtick="M1", tickformat="%Y/%m", ticklabelmode="period")
-
-
-        analysis_text = f"Analysis for {country_name}: Here you can provide insights into the {selected_variable} trends over time..."
-        
-        return f'Country: {country_name}', fig, fig_monthly, analysis_text
+            height=400,
+            font=dict(size=12)
+        )        
+        return fig, fig_monthly

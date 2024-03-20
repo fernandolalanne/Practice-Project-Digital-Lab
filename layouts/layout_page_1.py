@@ -6,8 +6,6 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
 
-# Asumiendo que 'df_concatenado' y 'df_covid_combined' son cargados aquí o importados
-
 fig_map = px.scatter_geo(df_concatenado, locations="Entity", locationmode='country names',
                          hover_name="Entity", projection="natural earth")
                          
@@ -26,7 +24,7 @@ layout_page_1 = dbc.Container([
     dbc.Row(dbc.Col(dcc.Dropdown(
         id='variable-dropdown',
         options=[{'label': i, 'value': i} for i in variables_economy],
-        value=variables_economy[0]  # default value
+        value=variables_economy[0]
     ))),
     dbc.Row(dbc.Col(html.Div("Graphical representation:"))),
     dbc.Row([
@@ -35,10 +33,10 @@ layout_page_1 = dbc.Container([
             html.H4("Monthly Data Visualization"),
             dcc.Dropdown(
                 id='monthly-data-dropdown',
-                options=[{'label': i, 'value': i} for i in variables_covid],  # Asume que la columna 3 tiene datos mensuales
-                value=variables_covid[0]  # default value
+                options=[{'label': i, 'value': i} for i in variables_covid],
+                value=variables_covid[0]
             ),
-            dcc.Graph(id='monthly-data-graph')  # Gráfico para datos mensuales
+            dcc.Graph(id='monthly-data-graph')
         ], width=6)
     ]),
     dbc.Row(dbc.Col(html.Div(id='analysis-box')))

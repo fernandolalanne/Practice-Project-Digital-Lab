@@ -13,8 +13,7 @@ from load_data import df_concatenado, df_covid_combined
 def update_graph_page2(selected_country, selected_variable):
     filtered_df = df_covid_combined[df_covid_combined['location'] == selected_country]
     
-    
     fig = px.bar(filtered_df, x='Month', y=selected_variable, color='Year',
                     title=f"Evolution od {selected_variable} in {selected_country} per Year and Month")
-    
+
     return fig

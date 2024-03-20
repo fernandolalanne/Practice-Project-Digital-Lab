@@ -64,9 +64,9 @@ leyenda_card = dbc.Card(
         "Hungary, Poland"
     ]),
     ]),
-    color="info",  # Color de la tarjeta. Puedes elegir: "primary", "secondary", "info", etc.
-    inverse=True,  # Cambia el color del texto para mayor contraste con el color de fondo
-    style={"maxWidth": "400px", "margin": "50px auto 0 auto"}  # Centra la tarjeta y ajusta su ancho
+    color="info",
+    inverse=True,
+    style={"maxWidth": "400px", "margin": "50px auto 0 auto"}
 )
 
 
@@ -78,7 +78,7 @@ layout_page_3 = dbc.Container([
         dbc.Col(dcc.Dropdown(
             id='country-dropdown-page3',
             options=[{'label': country, 'value': country} for country in selected_countries],
-            value=selected_countries[0]  # Valor predeterminado
+            value=selected_countries[0]
         ), width=9),
     ]),
     dbc.Row(dbc.Col(dcc.Graph(id='selected-country-graph'))),
@@ -90,7 +90,7 @@ layout_page_3 = dbc.Container([
             dcc.Dropdown(id='covid-vars-dropdown',
                          options=[{'label': var, 'value': var} for var in variables_covid],
                          multi=True,
-                         value=['Total cases per million']  # Valores predeterminados o vacíos
+                         value=['Total cases per million']
                         )
         ], width=6),
         dbc.Col([
@@ -98,7 +98,7 @@ layout_page_3 = dbc.Container([
             dcc.Dropdown(id='economic-vars-dropdown',
                          options=[{'label': var, 'value': var} for var in variables_economy],
                          multi=True,
-                         value=['GDP']  # Valores predeterminados o vacíos
+                         value=['GDP']
                         )
         ], width=6),
     ]),
@@ -118,7 +118,7 @@ layout_page_3 = dbc.Container([
         dbc.Col(dcc.Dropdown(
             id='scatter-covid-var-dropdown',
             options=[{'label': var, 'value': var} for var in variables_covid],
-            value=variables_covid[0]  # Valor predeterminado
+            value=variables_covid[0]
         ), width=9),
     ]),
     dbc.Row([
@@ -126,7 +126,7 @@ layout_page_3 = dbc.Container([
         dbc.Col(dcc.Dropdown(
             id='scatter-economic-var-dropdown',
             options=[{'label': var, 'value': var} for var in variables_economy],
-            value=variables_economy[0]  # Valor predeterminado
+            value=variables_economy[0]
         ), width=9),
     ]),
     dbc.Row([
@@ -135,7 +135,7 @@ layout_page_3 = dbc.Container([
     dbc.Row([
         dbc.Col(dcc.Slider(
             id='time-slider',
-            min=df_covid_selected['Year'].min(),  # Asume que 'Year' es tu columna de tiempo unificada
+            min=df_covid_selected['Year'].min(),
             max=df_covid_selected['Year'].max(),
             value=df_covid_selected['Year'].min(),
             marks={str(year): str(year) for year in df_covid_selected['Year'].unique()},

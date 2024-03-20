@@ -31,15 +31,14 @@ def generate_3d_correlation_graph(df, vars):
         mode='markers',
         marker=dict(
             size=8,
-            color=z_data,  # Color de los puntos por valor de correlación
-            colorscale='Viridis',  # Escala de colores
+            color=z_data,
+            colorscale='Viridis',
             opacity=0.8,
-            colorbar=dict(title='Correlation'),  # Personaliza la barra de color
+            colorbar=dict(title='Correlation'),
         ),
-        text=[f'{x}, {y}: {z:.2f}' for x, y, z in zip(x_data, y_data, z_data)],  # Texto mostrado al pasar el cursor sobre los puntos
+        text=[f'{x}, {y}: {z:.2f}' for x, y, z in zip(x_data, y_data, z_data)],
     )])
     
-    # Configuración del layout del gráfico
     fig.update_layout(margin=dict(l=0, r=0, b=0, t=30), scene=dict(
                       xaxis_title='Variable X',
                       yaxis_title='Variable Y',
@@ -56,13 +55,13 @@ def generate_3d_correlation_graph(df, vars):
      Output('Trade-evolution-graph', 'figure'),
      Output('covid-correlation-3d', 'figure'),
      Output('economic-correlation-3d', 'figure'),
-     Output('time-scatter-plot', 'figure')],  # Asegúrate de tener este Output en tu layout
+     Output('time-scatter-plot', 'figure')],
     [Input('country-dropdown-page3', 'value'),
      Input('covid-vars-dropdown', 'value'),
      Input('economic-vars-dropdown', 'value'),
      Input('time-slider', 'value'),
-     Input('scatter-covid-var-dropdown', 'value'),  # Nuevo Input para variable de COVID
-     Input('scatter-economic-var-dropdown', 'value')]  # Nuevo Input para variable económica
+     Input('scatter-covid-var-dropdown', 'value'),
+     Input('scatter-economic-var-dropdown', 'value')]
 )
 
 def update_selected_country_graph(selected_country, selected_covid_vars, selected_economic_vars, selected_year, scatter_covid_var, scatter_economic_var):
