@@ -42,15 +42,15 @@ The primary goal of this project is to gain insights into how economic factors a
 
 The project includes Jupyter notebooks for data preprocessing, analysis, and clustering. These notebooks contain Python code and markdown cells documenting the steps taken in the analysis process. Key tasks performed in the notebooks include:
 
-### preprocessing-Africa-Asia
+### Preprocessing-Africa-Asia
 
 • blabla???
 
-### preprocessing-America
+### Preprocessing-America
 
 • blabla???
 
-### preprocessing-europe
+### Preprocessing-europe
 
 • This notebook provides an extensive data preprocessing and merging to prepare our data for analysis.
 
@@ -72,7 +72,7 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 - df_covid_HICP_europe.csv with the features: date,HICP,location,total_deaths,stringency_index,total_cases_per_million,new_cases_smoothed_per_million,weekly_hosp_admissions_per_million,continent,Year,Month.
 - df_economics_europe.csv with the features: location,education,GDP,gini,median_income,poorest_decile_threshold,richest_decile_threshold,trade,continent,Year
 
-### visualisation-before-cleaning
+### Visualisation-before-cleaning
 
 • This notebook focuses on in-depth data analysis and visualization.
 
@@ -83,7 +83,7 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 • This notebook was used to get a first idea of the quality of the data we gathered and to select only the relevent features and countries.
 
 
-### visualisation-after-cleaning
+### Visualisation-after-cleaning
 
 • This notebook experiments with different types of visualizations for our cleaned and preprossed tables, using libraries such as Matplotlib, Seaborn, Plotly, and Dash.
 
@@ -94,7 +94,7 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 • The notebook aims to decide on the type of figure and the part of the data that will be used on the Dashboard, ensuring that the visualizations are informative and align with the project's objectives.
 
 
-### cluster_europe
+### Cluster_europe
 
 • This notebook performs clustering analysis on economic and COVID-19 data for European countries.
 
