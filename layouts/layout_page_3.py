@@ -5,9 +5,11 @@ from load_data import df_concatenado, df_covid_combined
 from layouts.layout_page_1 import variables_covid, variables_economy
 import plotly.graph_objects as go
 import pandas as pd
+import json
 
 
-
+with open('./graph_descriptions.json') as file:
+    graph_descriptions = json.load(file)
 
 selected_countries = ['Chile', 'Mexico', 'Canada', 'Finland', 'France', 'Romania', 'Italy']
 df_covid_selected = df_covid_combined[df_covid_combined['location'].isin(selected_countries)]
@@ -108,6 +110,7 @@ layout_page_3 = dbc.Container([
     leyenda_card,
     dbc.Row([
         dbc.Col(dcc.Graph(id='covid-evolution-graph'), width=6),
+        dbc.Col(html.P(graph_descriptions['covid-evolution-graph'])),
         dbc.Col(dcc.Graph(id='economic-evolution-graph'), width=6),
         dbc.Col(dcc.Graph(id='inflation-evolution-graph'), width=6),
         dbc.Col(dcc.Graph(id='Trade-evolution-graph'), width=6),
