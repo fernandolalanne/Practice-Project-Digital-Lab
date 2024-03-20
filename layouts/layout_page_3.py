@@ -4,6 +4,7 @@ import plotly.express as px
 from load_data import df_concatenado, df_covid_combined
 from layouts.layout_page_1 import variables_covid, variables_economy
 import plotly.graph_objects as go
+import pandas as pd
 
 
 
@@ -21,8 +22,6 @@ def generate_economic_bubble_chart(df):
     fig = px.scatter(df, x="Year", y="GDP_per_capita", size="population", color="Entity",
                      title="Economic Bubble Chart Over Time", size_max=60)
     return fig
-
-
 
 leyenda_card = dbc.Card(
     dbc.CardBody([
@@ -141,6 +140,9 @@ layout_page_3 = dbc.Container([
             marks={str(year): str(year) for year in df_covid_selected['Year'].unique()},
             step=None
         ), width=12),
+    ]),
+    dbc.Row([
+    dbc.Col(dcc.Graph(id='hospitalizations-heatmap-graph'), width=12),
     ]),
 
 

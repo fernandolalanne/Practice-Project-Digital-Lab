@@ -45,6 +45,15 @@ def generate_3d_correlation_graph(df, vars):
                       zaxis_title='Correlación'))
     return fig
 
+def generate_hospitalizations_heatmap(df):
+    df_grouped = df.groupby(['location', 'Year'])['Weekly hospitalizations per million'].mean().reset_index()
+    heatmap_data = df_grouped.pivot("location", "Year", "Weekly hospitalizations per million")
+    fig = px.imshow(heatmap_data, labels=dict(x="Country", y="Year", color="Weekly Hospitalizations per Million"),
+                    aspect="auto", title="Hospitalizations per Million")
+    fig.update_layout(xaxis={'side': 'bottom'})
+    fig.update_xaxes(tickangle=-45)
+
+    return fig
 
 @app.callback(
     [Output('selected-country-graph', 'figure'),
@@ -55,7 +64,8 @@ def generate_3d_correlation_graph(df, vars):
      Output('Trade-evolution-graph', 'figure'),
      Output('covid-correlation-3d', 'figure'),
      Output('economic-correlation-3d', 'figure'),
-     Output('time-scatter-plot', 'figure')],
+     Output('time-scatter-plot', 'figure'),
+     Output('hospitalizations-heatmap-graph', 'figure')],
     [Input('country-dropdown-page3', 'value'),
      Input('covid-vars-dropdown', 'value'),
      Input('economic-vars-dropdown', 'value'),
@@ -69,7 +79,6 @@ def update_selected_country_graph(selected_country, selected_covid_vars, selecte
 
     # df_covid_combined['Year'] = pd.to_datetime(df_covid_combined['Year'].astype(str) + '-' + df_covid_combined['Month'].astype(str)).dt.year
     annual_covid_data = df_covid_combined.groupby(['location', 'Year'])[scatter_covid_var].mean().reset_index()
-    print(annual_covid_data)
     filtered_covid_df = annual_covid_data[(annual_covid_data['Year'] == selected_year) & (annual_covid_data['location'].isin(selected_countries))]
     filtered_economic_df = df_concatenado[(df_concatenado['Year'] == selected_year) & (df_concatenado['Entity'].isin(selected_countries))]
     
@@ -118,6 +127,8 @@ def update_selected_country_graph(selected_country, selected_covid_vars, selecte
     fig4 = px.area(df_economic_selected, x='Year', y='GDP', color='Entity', line_group='Entity', title='GDP Evolution for Selected Countries')
     fig9 = px.scatter(df_covid_selected, x='Inflation rate', y='New cases per million', color='location', title='Inflation evolution according to detected cases')
     fig10 = px.area(df_covid_selected, x='Stringency index', y='Weekly hospitalizations per million', color='location', line_group='location', title='Relation between the stringency and the hospitalization rate')
+    fig_heatmap = generate_hospitalizations_heatmap(df_covid_selected)
 
 
-    return fig, fig2, fig3, fig4, fig9, fig10, fig5, fig6, fig_time
+
+    return fig, fig2, fig3, fig4, fig9, fig10, fig5, fig6, fig_time, fig_heatmap
