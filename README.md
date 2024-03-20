@@ -155,8 +155,6 @@ To run the web dashboard locally, follow these steps:
 
 ## Analysis/interpretation 
 
-- From our analysis we found that there is no obvious correlation between the COVID-19 pandemics and the global economy.
-
 - Country selection
 
 We selected countries that represent the diversity of the different continents, taking into account how their economy originally is and how they were impacted by the pandemic. We had for each continent 3 or 4 groups of countries with similarities, and we decided to select only 1 from each group base on the amount of data available for the features we want to analyse.
@@ -177,12 +175,13 @@ We used KNN imputers for variables where the data missing was randomly distribut
 
 
 
-
 -  Graph analysis
 
 For France or Brazil we can see..
 
 The inflation and total_death seem to be correlated but it is probably due to the fact that total death is cumulative and inflation grows with time, so both are evoluting the same way. But It is more interesting to look at non cumulative variables as they reflect the situation at a certain point, as the inflation rate does. 
+
+From our analysis we found that there is no obvious correlation between the COVID-19 pandemics and the global economy. 
 
 
 - Interpretation
