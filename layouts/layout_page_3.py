@@ -70,6 +70,7 @@ leyenda_card = dbc.Card(
     style={"maxWidth": "400px", "margin": "50px auto 0 auto"}
 )
 
+
 instruction_card = dbc.Card(
     dbc.CardBody([
         html.H5("Explore the Data", className="card-title"),
@@ -89,6 +90,28 @@ instruction_card2 = dbc.Card(
     outline=True,
     style={"margin-bottom": "20px"}
 )
+
+
+conclusiones_card = dbc.Card(
+    dbc.CardBody([
+        html.H2("Conclusions", className="card-title text-center", style={"marginBottom": "20px"}),
+        dbc.Row([
+            dbc.Col(html.P("The aim of this section is to present our main findings on the economic and health situation in the countries studied.")),
+        ]),
+        html.Hr(),
+        dbc.Row([
+            dbc.Col(dbc.ListGroup([
+                dbc.ListGroupItem("Conclusión clave 1: Descripción breve."),
+                dbc.ListGroupItem("Conclusión clave 2: Descripción breve."),
+                dbc.ListGroupItem("Conclusión clave 3: Descripción breve."),
+            ]), width=8)
+        ]),
+        
+    ]),
+    className="mb-3",
+    style={"marginTop": "50px", "backgroundColor": "#f8f9fa"},  # Puedes ajustar el color de fondo
+)
+
 
 layout_page_3 = dbc.Container([
     html.H1("Representative countries Analysis"),
@@ -219,7 +242,7 @@ layout_page_3 = dbc.Container([
     dbc.Col(dcc.Graph(id='hospitalizations-heatmap-graph'), width=12),
     ]),
     html.H5("Evolution of the hospitalization rates", style={"textAlign": "center"}),
-    html.P(graph_descriptions['hospitalizations-heatmap-graph'], style={"textAlign": "center"})
-
+    html.P(graph_descriptions['hospitalizations-heatmap-graph'], style={"textAlign": "center"}),
+    conclusiones_card
 
 ], fluid=True)
