@@ -215,8 +215,6 @@ Selected features try to capture adequately the economic aspects impacted by the
 To mitigate the gaps and limitation we have we could…
 
 
-si stringency index augmente, l'inflation diminue: scatter plot. Interpretation: 
-
 ## Conclusion 
 
 The project aims to provide valuable insights into the complex interactions between economic factors and the COVID-19 pandemic. Through comprehensive data analysis, visualization, and the development of an interactive dashboard, we strive to empower stakeholders with actionable information for decision-making and policy planning.
