@@ -35,7 +35,7 @@ Pour pouvoir visualiser le dashboard, il est nécessaire de taper dans le termin
 ou on peut aussi taper
     
     python index.py
-    
+
 ## Goal of the Project
 
 This project aims to analyze the potential impact of the COVID-19 pandemy on the economy. The analysis is conducted using a combination of data preprocessing, visualization techniques, clustering analysis, and the development of an interactive web-based dashboard using Dash.
@@ -48,7 +48,9 @@ The idea was to be able to analyze and draw **conclusions about the global situa
 
 ## Notebooks Overview
 
-The project includes Jupyter notebooks for data preprocessing, analysis, and clustering. These notebooks contain Python code and markdown cells documenting the steps taken in the analysis process. Key tasks performed in the notebooks include:
+The project includes Jupyter notebooks for data preprocessing, analysis, and clustering which are in the different branches, because in the main branch we only put the code related to the Dashboard. 
+
+These notebooks contain Python code and markdown cells documenting the steps taken in the analysis process. Key tasks performed in the notebooks include:
 
 ### Preprocessing-Africa-Asia
 
