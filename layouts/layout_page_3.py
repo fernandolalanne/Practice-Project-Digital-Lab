@@ -106,6 +106,7 @@ conclusiones_card = dbc.Card(
                 dbc.ListGroupItem(f"Conclusion 1: {graph_descriptions['conclusion-1']}"),
                 dbc.ListGroupItem(f"Conclusion 2: {graph_descriptions['conclusion-2']}"),
                 dbc.ListGroupItem(f"Conclusion 3: {graph_descriptions['conclusion-3']}"),
+                dbc.ListGroupItem(f"Conclusion 4: {graph_descriptions['conclusion-4']}"),
             ]), width=8)
         ]),
         
