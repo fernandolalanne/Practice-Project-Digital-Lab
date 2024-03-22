@@ -1,8 +1,8 @@
 import pandas as pd
 
-file_path_concatenado = 'Data_created/df_concatenado.csv'
+# file_path_concatenado = 'Data_created/df_concatenado.csv'
 # file_path_covid_combined = 'Data_created/df_covid_combined.csv'
-
+file_path_concatenado = 'Data_created/df_concatenado_all.csv'
 file_path_covid_combined = 'Data_created/df_covid_comb_all.csv'
 
 
@@ -13,7 +13,10 @@ df_covid_combined = pd.read_csv(file_path_covid_combined)
 
 news_names_concatenado = {'trade': 'Trade (% GDP)', 'poorest_decile_threshold': 'Poorest decile threshold',
                             'GINI':'Gini Coefficient', 'median_income':'Median income', 'richest_decile_threshold':'Richest decile threshold',
-                            'Education':'Money spent in the education area'}
+                            'Education':'Money spent in the education area',
+                            'Inflation': 'Inflation (Africa and Asia)',
+                            'School enrollment':'School enrollment (Africa and Asia)',
+                            'Unemployment Rate':'Unemployment Rate (Africa and Asia)'}
 
 df_concatenado = df_concatenado.rename(columns=news_names_concatenado)
 

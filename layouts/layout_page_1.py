@@ -10,7 +10,9 @@ fig_map = px.scatter_geo(df_concatenado, locations="Entity", locationmode='count
                          hover_name="Entity", projection="natural earth")
                          
 variables_economy = ['GDP','Trade (% GDP)', 'Poorest decile threshold',
-            'Gini Coefficient', 'Median income', 'Richest decile threshold','Money spent in the education area']
+            'Gini Coefficient', 'Median income', 
+            'Richest decile threshold','Money spent in the education area',
+            'Inflation (Africa and Asia)','School enrollment (Africa and Asia)', 'Unemployment Rate (Africa and Asia)']
 variables_covid = ['Total Deaths', 'Total cases per million',
 'New cases per million', 'Stringency index', 
 'Weekly hospitalizations per million','Inflation rate']

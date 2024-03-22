@@ -75,8 +75,10 @@ def generate_hospitalizations_heatmap(df):
 )
 
 def update_selected_country_graph(selected_country, selected_covid_vars, selected_economic_vars, selected_year, scatter_covid_var, scatter_economic_var):
-    selected_countries = ['Chile', 'Mexico', 'Canada', 'Finland', 'France', 'Romania', 'Italy']
-
+    selected_countries = ['Chile', 'Mexico', 'Canada', 'Finland', 'France', 
+                        'Romania', 'Italy', 'Morocco', 'Equatorial Guinea', 
+                        'Comoros', 'South Africa', 'Jordan', 'China', 'Kuwait', 
+                        'United Arab Emirates']
     # df_covid_combined['Year'] = pd.to_datetime(df_covid_combined['Year'].astype(str) + '-' + df_covid_combined['Month'].astype(str)).dt.year
     annual_covid_data = df_covid_combined.groupby(['location', 'Year'])[scatter_covid_var].mean().reset_index()
     filtered_covid_df = annual_covid_data[(annual_covid_data['Year'] == selected_year) & (annual_covid_data['location'].isin(selected_countries))]
