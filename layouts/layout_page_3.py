@@ -106,9 +106,9 @@ conclusiones_card = dbc.Card(
             dbc.Col(html.Img(src="../assets/heatmap_celine.png", style={"width": "100%", "padding": "10px"})
 ),
             dbc.Col(dbc.ListGroup([
-                dbc.ListGroupItem(f"Conclusion 1: {graph_descriptions['conclusion-1']}"),
-                dbc.ListGroupItem(f"Conclusion 2: {graph_descriptions['conclusion-2']}"),
-                dbc.ListGroupItem(f"Conclusion 3: {graph_descriptions['conclusion-3']}"),
+                dbc.ListGroupItem(f"{graph_descriptions['conclusion-1']}"),
+                dbc.ListGroupItem(f"{graph_descriptions['conclusion-2']}"),
+                dbc.ListGroupItem(f"{graph_descriptions['conclusion-3']}"),
             ]), width=8)
         ]),
         
