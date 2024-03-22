@@ -232,7 +232,7 @@ Education: Total general government expenditure on education (all levels of gove
 
 median_income: This data is adjusted for inflation and for differences in the cost of living between countries.
 
-GDP: This data is expressed in US dollars. It is adjusted for inflation but does not account for differences in the cost of livingbetween countries.
+GDP (we standardized this variable, which explains the negative values): This data is expressed in US dollars. It is adjusted for inflation but does not account for differences in the cost of livingbetween countries.
 
 richest_decile_threshold: This is the level of income or consumption per person per day below which 90% of the population falls. This data isadjusted for inflation and differences in the cost of living between countries.
 
