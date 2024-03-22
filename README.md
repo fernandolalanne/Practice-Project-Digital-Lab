@@ -7,12 +7,13 @@ Le fichier suivant a pour but d'expliquer comment le code a été créé afin qu
 
 ## Index :card_index_dividers:
 
-- [Necessary libraries](#bibliothèques-nécessaires) :blue_book:
-- [How to launch the Dashboard](#comment-lancer-ou-gérer-le-programme) :raised_eyebrow:
+- [Necessary libraries](#necessary-libraries) :blue_book:
+- [How to launch the Dashboard](#how-to-launch-the-dashboard) :raised_eyebrow:
 - [Goal of the project](#goal-of-the-project) :file_folder:
 - [Notebooks overview](#notebooks-overview) :framed_picture:
 - [Web Dashboard](#web-dashboard) :nerd_face:
-- [Analysis-Interpretation](#analysis-interpretation) :globe_with_meridians:
+- [Preprocessing explanation](#preprocessing-explanation) :globe_with_meridians:
+- [Analysis](#analysis) :globe_with_meridians:
 - [Conclusion](#conclusion) :globe_with_meridians:
 - [Future direction](#future-direction) :arrow_up_small:
 
@@ -188,9 +189,9 @@ To run the web dashboard locally, follow these steps:
 3. Open a web browser and navigate to the provided address to access the dashboard.
 
 
-## Analysis/interpretation 
+## Preprocessing explanation
 
-- Country selection
+- **Country selection**
 
 We selected countries that represent the diversity of the different continents, taking into account how their economy originally is and how they were impacted by the pandemic. With the help of the Notebook visualisation-before-cleaning and with all the preprocess made on our data, we searched if certains group of countries stood out according to different economic and covid related criterias. From this and the clustering step (which usually confirmed our analysis), we could identify for each continent 3 or 4 groups of countries with similarities, and we decided to select only 1 from each group based on the amount of data available for the features we want to analyse.
 We also volontarily put aside countries impacted by a war or with extreme political situations, as Venezuela, Ukraine and Mali for example. 
@@ -198,7 +199,7 @@ We also volontarily put aside countries impacted by a war or with extreme politi
 We decided to make the deep analysis on the countries: Chile, Canada, Mexico, Finland, France, Romania, Italy, Morocco, Equatorial Guinea, Comoros, South Africa, Jordan, China, Kuwait, United Arab Emirates.
 
 
-- Feature selection
+- **Feature selection**
 
 We selected features that show how the pandemic impacted the countries, and the economics situation of those countries.
 
@@ -208,46 +209,54 @@ The final features selected are the following:
 
 ◦ Covid table:
 
-total_deaths: Total deaths attributed to COVID-19. Counts can include probable deaths, where reported.
+Total deaths: Total deaths attributed to COVID-19. Counts can include probable deaths, where reported.
 
-total_cases_per_million: Total confirmed cases of COVID-19 per 1,000,000 people. Counts can include probable cases, where reported.
+Total cases per million: Total confirmed cases of COVID-19 per 1,000,000 people. Counts can include probable cases, where reported.
 
-new_cases_smoothed_per_million: New confirmed cases of COVID-19 (7-day smoothed) per 1,000,000 people. Counts can include probable cases, where reported. 
+New cases smoothed per million: New confirmed cases of COVID-19 (7-day smoothed) per 1,000,000 people. Counts can include probable cases, where reported. 
 
-stringency_index: Government Response Stringency Index: composite measure based on 9 response indicators including school closures, workplace closures, and travel bans, rescaled to a value from 0 to 100 (100 = strictest response)
+Stringency index: Government Response Stringency Index: composite measure based on 9 response indicators including school closures, workplace closures, and travel bans, rescaled to a value from 0 to 100 (100 = strictest response)
 
-weekly_hosp_admissions_per_million: Number of COVID-19 patients newly admitted to hospitals in a given week (reporting date and the preceeding 6 days)
+Weekly hospitalization admissions permillion: Number of COVID-19 patients newly admitted to hospitals in a given week (reporting date and the preceeding 6 days)
 
 HICP (only for European and American countries): The Harmonized Consumer Price Index (HICP) provides a standardized measure of inflation across EU countries
 
 ◦ Economic table: 
 
-trade: Sum of exports and imports of goods and services, divided by gross domestic product, expressed as a percentage. This isalso known as the "trade openness index".
+Trade: Sum of exports and imports of goods and services, divided by gross domestic product, expressed as a percentage. This isalso known as the "trade openness index".
 
-poorest_decile_threshold: level of income or consumption per person per day below which 10% of the population falls. This data isadjusted for inflation and differences in the cost of living between countries.
+Poorest decile threshold: level of income or consumption per person per day below which 10% of the population falls. This data isadjusted for inflation and differences in the cost of living between countries.
 
 Gini: The Gini coefficient measures inequality on a scale from 0 to 1. Higher values indicate higher inequality. Depending on thecountry and year, the data relates to income measured after taxes and benefits, or to consumption, per capita.
 
 Education: Total general government expenditure on education (all levels of government and all levels of education), given as a shareof GDP.
 
-median_income: This data is adjusted for inflation and for differences in the cost of living between countries.
+Median income: This data is adjusted for inflation and for differences in the cost of living between countries.
 
 GDP (we standardized this variable, which explains the negative values): This data is expressed in US dollars. It is adjusted for inflation but does not account for differences in the cost of livingbetween countries.
 
-richest_decile_threshold: This is the level of income or consumption per person per day below which 90% of the population falls. This data isadjusted for inflation and differences in the cost of living between countries.
+Richest decile threshold: This is the level of income or consumption per person per day below which 90% of the population falls. This data isadjusted for inflation and differences in the cost of living between countries.
 
 Inflation (only for Asian and African countries): Inflation measured by consumer price index (CPI) is defined as the change in the prices of a basket of goods and services that are typically purchased by specific groups of households.
 
-unemployment_rate: This indicator is measured in numbers of unemployed people as a percentage of the labour force and it is seasonally adjusted
+Unemployment rate: This indicator is measured in numbers of unemployed people as a percentage of the labour force and it is seasonally adjusted
 
-- Data cleaning
 
-We cleaned the data depending on the feature, the period for which the data is missing and using common sense. For exemple we replaced NaN from stringency_index by 0 as those values are missing because there were no measures taken anymore at the end of the pandemy for all the countries.
-We used KNN imputers for variables where the data missing was randomly distributed over our features.
+- **Data cleaning**
+
+We cleaned the data depending on the feature, the period for which the data is missing and using common sense. 
+
+For exemple we replaced NaN from stringency_index by 0 as those values are missing because there were no measures taken anymore at the end of the pandemic for all the countries.
+
+We used KNN imputers for variables where the data missing was sparsely distributed over our features.
+Some variables were standardized to offer more readibility of our graphs and to allow a better analysis.
+
+
+## Analysis
+
+See directly on the Dashboard
 
 
 ## Conclusion 
 
-The project aims to provide valuable insights into the complex interactions between economic factors and the COVID-19 pandemic. Through comprehensive data analysis, visualization, and the development of an interactive dashboard, we strive to empower stakeholders with actionable information for decision-making and policy planning.
-
-By leveraging advanced data analysis techniques and visualization tools, this project offers a deeper understanding of the economic impacts of the COVID-19 pandemic across different regions. The interactive web dashboard serves as a valuable resource for policymakers, researchers, and other stakeholders to explore trends, identify patterns, and make informed decisions.
+The project aims to provide valuable insights into the complex interactions between economic factors and the COVID-19 pandemic. Through comprehensive data analysis, visualization, and the development of an interactive dashboard, this project offers a deeper understanding of the economic impacts of the COVID-19 pandemic across different regions. 
