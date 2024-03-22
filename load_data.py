@@ -15,7 +15,6 @@ news_names_concatenado = {'trade': 'Trade (% GDP)', 'poorest_decile_threshold': 
                             'GINI':'Gini Coefficient', 'median_income':'Median income', 'richest_decile_threshold':'Richest decile threshold',
                             'Education':'Money spent in the education area',
                             'Inflation': 'Inflation (Africa and Asia)',
-                            'School enrollment':'School enrollment (Africa and Asia)',
                             'Unemployment Rate':'Unemployment Rate (Africa and Asia)'}
 
 df_concatenado = df_concatenado.rename(columns=news_names_concatenado)
