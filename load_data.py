@@ -8,7 +8,7 @@ df_covid_combined = pd.read_csv(file_path_covid_combined)
 
 
 
-news_names_concatenado = {'trade': 'Percentage of GDP of trade', 'poorest_decile_threshold': 'Poorest decile threshold',
+news_names_concatenado = {'trade': 'Trade (% GDP)', 'poorest_decile_threshold': 'Poorest decile threshold',
                             'GINI':'Gini Coefficient', 'median_income':'Median income', 'richest_decile_threshold':'Richest decile threshold',
                             'Education':'Money spent in the education area'}
 
