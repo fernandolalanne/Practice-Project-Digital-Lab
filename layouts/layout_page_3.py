@@ -100,11 +100,12 @@ conclusiones_card = dbc.Card(
         ]),
         html.Hr(),
         dbc.Row([
-            dbc.Col(html.Img(src="Data_created/heatmap_celine.png", style={"width": "100%", "padding": "10px"}), width=4),
+            dbc.Col(html.Img(src="../assets/heatmap_celine.png", style={"width": "100%", "padding": "10px"})
+),
             dbc.Col(dbc.ListGroup([
-                dbc.ListGroupItem("Conclusión clave 1: Descripción breve."),
-                dbc.ListGroupItem("Conclusión clave 2: Descripción breve."),
-                dbc.ListGroupItem("Conclusión clave 3: Descripción breve."),
+                dbc.ListGroupItem(f"Conclusion 1: {graph_descriptions['conclusion-1']}"),
+                dbc.ListGroupItem(f"Conclusion 2: {graph_descriptions['conclusion-2']}"),
+                dbc.ListGroupItem(f"Conclusion 3: {graph_descriptions['conclusion-3']}"),
             ]), width=8)
         ]),
         

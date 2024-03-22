@@ -32,6 +32,10 @@ Pour pouvoir visualiser le dashboard, il est nécessaire de taper dans le termin
 
     python3 index.py
 
+ou on peut aussi taper
+    
+    python index.py
+    
 ## Goal of the Project
 
 This project aims to analyze the potential impact of the COVID-19 pandemy on the economy. The analysis is conducted using a combination of data preprocessing, visualization techniques, clustering analysis, and the development of an interactive web-based dashboard using Dash.
@@ -123,8 +127,8 @@ The project includes Jupyter notebooks for data preprocessing, analysis, and clu
 
 • This notebook outputs two files specific to American countries:
 
-    df_covid_economics_america.csv containing features like date, location, total_deaths, GDP, education, poverty, continent, Year, and Month.
-    df_clusters_america.csv containing the clustered groups of American countries based on economic and COVID-19 metrics.
+    df_concatenado.csv -> economic factors for America and Europe
+    df_covid_combined.csv -> covid factors for America and Europe
 
 The preprocessing steps ensure that the data is structured and cleaned for further analysis and visualization on the dashboard, facilitating insights into the intersection of economic factors and the COVID-19 pandemic in the Americas region.
 
