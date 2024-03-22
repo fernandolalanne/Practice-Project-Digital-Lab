@@ -11,7 +11,10 @@ import json
 with open('./graph_descriptions.json') as file:
     graph_descriptions = json.load(file)
 
-selected_countries = ['Chile', 'Mexico', 'Canada', 'Finland', 'France', 'Romania', 'Italy', 'Morocco', 'Equatorial Guinea', 'Comoros', 'South Africa', 'Jordan', 'China', 'Kuwait', 'United Arab Emirates']
+selected_countries = ['Chile', 'Mexico', 'Canada', 'Finland', 'France', 
+                        'Romania', 'Italy', 'Morocco', 'Equatorial Guinea', 
+                        'Comoros', 'South Africa', 'Jordan', 'China', 'Kuwait', 
+                        'United Arab Emirates']
 df_covid_selected = df_covid_combined[df_covid_combined['location'].isin(selected_countries)]
 df_economic_selected = df_concatenado[df_concatenado['Entity'].isin(selected_countries)]
 
@@ -106,7 +109,6 @@ conclusiones_card = dbc.Card(
                 dbc.ListGroupItem(f"Conclusion 1: {graph_descriptions['conclusion-1']}"),
                 dbc.ListGroupItem(f"Conclusion 2: {graph_descriptions['conclusion-2']}"),
                 dbc.ListGroupItem(f"Conclusion 3: {graph_descriptions['conclusion-3']}"),
-                dbc.ListGroupItem(f"Conclusion 4: {graph_descriptions['conclusion-4']}"),
             ]), width=8)
         ]),
         
